@@ -1,15 +1,5 @@
-import { useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-
-function App() {
-  return (
-    <>
-      <Navbar />
-    </>
-  );
-}
+import React from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
@@ -129,5 +119,3 @@ const Navbar = () => {
     </>
   );
 };
-
-export default App;

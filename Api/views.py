@@ -104,7 +104,10 @@ class UserView(APIView):
 	authentication_classes = (SessionAuthentication,)
 	##
 	def get(self, request):
-		serializer = UserSerializer(request.user)
-		return Response({'user': serializer.data}, status=status.HTTP_200_OK)
-      
-
+		if request.user.is_authenticated:
+			print('yess')
+			serializer = UserSerializer(request.user)
+			return Response({'user': serializer.data,'status':True}, status=status.HTTP_200_OK)
+		else:
+			print('nooo')
+			return Response({'status': False, 'message': 'User not authenticated'}, status=status.HTTP_401_UNAUTHORIZED)
