@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
+import { LoginFormModal } from "./components/login";
 function App() {
   return (
     <>
@@ -45,27 +46,25 @@ const Navbar = () => {
     getUser();
   }, []);
 
-  const login = () => {};
-  const register = () => {};
-
   const AuthOptons = () => {
+    const [LoginmodalShow, setLoginModalShow] = useState(false);
+
     return (
       <>
         <li className="nav-item">
           <a
-            onClick={login}
             className="nav-link active text-light"
-            aria-current="page"
+            onClick={() => setLoginModalShow(true)}
             href="#"
           >
             Login
           </a>
         </li>
-        <li className="nav-item text-light">
-          <a onClick={register} className="nav-link text-light" href="#">
-            Register
-          </a>
-        </li>
+
+        <LoginFormModal
+          show={LoginmodalShow}
+          onHide={() => setLoginModalShow(false)}
+        />
       </>
     );
   };
