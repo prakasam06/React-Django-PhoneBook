@@ -41,15 +41,12 @@ export function LoginFormModal(props) {
         <Modal.Footer>
           <Button>Login</Button>
 
-          <Button className="" onClick={openRegistermodal} href="#">
+          <Button className="" onClick={openRegistermodal}>
             Register
           </Button>
         </Modal.Footer>
       </Modal>
-      <RegisterFormModal
-        show={RegistermodalShow}
-        onHide={() => setRegisterModalShow(false)}
-      />
+
     </>
   );
 }

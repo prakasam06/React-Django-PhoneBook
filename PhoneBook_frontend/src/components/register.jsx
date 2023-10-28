@@ -1,9 +1,26 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import { LoginFormModal } from "./login";
+
+import { useState } from "react";
+
+
+
 
 export function RegisterFormModal(props) {
+
+  const [LoginmodalShow, setLoginModalShow] = useState(false);
+
+  const openLoginmodal = () => {
+    const closebuttn = document.querySelector(".btn-close");  
+    closebuttn.click();
+    setLoginModalShow(true);
+  };
+
   return (
+  
+    <>
     <Modal
       {...props}
       size="lg"
@@ -38,8 +55,14 @@ export function RegisterFormModal(props) {
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button>Submit</Button>
+        <Button >Submit</Button>
+        <Button onClick={()=> openLoginmodal()}>Login</Button>
       </Modal.Footer>
     </Modal>
+       <LoginFormModal
+      show={LoginmodalShow}
+      onHide={() => setLoginModalShow(false)}
+    />
+  </>
   );
 }
